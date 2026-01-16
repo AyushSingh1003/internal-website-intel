@@ -11,76 +11,94 @@ internal-website-intel/
 ├── backend/
 │   ├── app/
 │   │   ├── __init__.py
-│   │   ├── main.py
-│   │   ├── config.py
-│   │   ├── database.py
+│   │   ├── main.py                 # FastAPI app entrypoint
+│   │   ├── config.py               # Environment & app configuration
+│   │   ├── database.py             # SQLAlchemy engine & session
+│   │   │
 │   │   ├── api/
 │   │   │   ├── __init__.py
-│   │   │   ├── deps.py
+│   │   │   ├── deps.py              # Auth & DB dependencies
 │   │   │   └── routes/
 │   │   │       ├── __init__.py
-│   │   │       ├── auth.py
-│   │   │       └── scans.py
+│   │   │       ├── auth.py          # Login & JWT issuance
+│   │   │       └── scans.py         # Scan create/list/get/delete APIs
+│   │   │
 │   │   ├── core/
 │   │   │   ├── __init__.py
-│   │   │   ├── security.py
-│   │   │   └── users.py
+│   │   │   ├── security.py          # Password hashing & JWT logic
+│   │   │   └── users.py             # Hardcoded internal users
+│   │   │
 │   │   ├── models/
 │   │   │   ├── __init__.py
-│   │   │   └── scan.py
+│   │   │   └── scan.py              # Scan database model
+│   │   │
 │   │   ├── schemas/
 │   │   │   ├── __init__.py
-│   │   │   ├── auth.py
-│   │   │   └── scan.py
+│   │   │   ├── auth.py              # Auth request/response schemas
+│   │   │   └── scan.py              # Scan & structured JSON schemas
+│   │   │
 │   │   ├── services/
 │   │   │   ├── __init__.py
-│   │   │   ├── ultimate_scraper.py
-│   │   │   ├── ultimate_extractor.py
-│   │   │   ├── llm_service.py
-│   │   │   └── database_service.py
+│   │   │   ├── ultimate_scraper.py  # Website scraping logic
+│   │   │   ├── ultimate_extractor.py# Contact extraction logic
+│   │   │   ├── llm_service.py       # Gemini/OpenAI integration
+│   │   │   └── database_service.py  # DB CRUD operations
+│   │   │
 │   │   ├── middleware/
 │   │   │   ├── __init__.py
-│   │   │   └── rate_limit.py
+│   │   │   └── rate_limit.py        # SlowAPI rate limiting
+│   │   │
 │   │   └── utils/
 │   │       ├── __init__.py
-│   │       └── validators.py
-│   ├── requirements.txt
-│   ├── .env.example
-│   └── README.md
+│   │       └── validators.py        # Email & phone validation helpers
+│   │
+│   ├── requirements.txt             # Python dependencies
+│   ├── .env.example                 # Backend environment template
+│   └── README.md                    # Backend-specific notes
+│
 ├── frontend/
 │   ├── app/
-│   │   ├── layout.tsx
-│   │   ├── page.tsx
-│   │   ├── globals.css
+│   │   ├── layout.tsx               # Root layout
+│   │   ├── page.tsx                 # Auth redirect logic
+│   │   ├── globals.css              # Global styles
+│   │   │
 │   │   ├── login/
-│   │   │   └── page.tsx
+│   │   │   └── page.tsx             # Login page
+│   │   │
 │   │   ├── dashboard/
-│   │   │   └── page.tsx
+│   │   │   └── page.tsx             # Scan dashboard
+│   │   │
 │   │   └── history/
-│   │       ├── page.tsx
+│   │       ├── page.tsx             # Scan history list
 │   │       └── [id]/
-│   │           └── page.tsx
+│   │           └── page.tsx         # Scan detail page
+│   │
 │   ├── components/
-│   │   ├── Header.tsx
-│   │   ├── ScanForm.tsx
-│   │   ├── ScanResult.tsx
-│   │   └── HistoryList.tsx
+│   │   ├── Header.tsx               # Navigation header
+│   │   ├── ScanForm.tsx             # URL input form
+│   │   ├── ScanResult.tsx           # Scan result display
+│   │   └── HistoryList.tsx          # History table
+│   │
 │   ├── lib/
-│   │   ├── api.ts
-│   │   └── auth.ts
+│   │   ├── api.ts                   # Axios API client
+│   │   └── auth.ts                  # Token utilities
+│   │
 │   ├── types/
-│   │   └── index.ts
-│   ├── public/
+│   │   └── index.ts                 # Shared TypeScript types
+│   │
+│   ├── public/                      # Static assets
 │   ├── package.json
 │   ├── package-lock.json
 │   ├── tsconfig.json
 │   ├── next.config.js
 │   ├── tailwind.config.ts
 │   ├── postcss.config.js
-│   ├── .env.local.example
-│   └── README.md
+│   ├── .env.local.example           # Frontend env template
+│   └── README.md                    # Frontend-specific notes
+│
 ├── .gitignore
-└── README.md (main)
+└── README.md                        # Main project README
+
 
 ✨ Features
 Core
